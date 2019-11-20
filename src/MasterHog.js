@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import Master from './assets/master-hog.png'
 import BabyHog from './BabyHog'
-// import offspring from './db.js'
+import offspring from './db.js'
 
 export default class MasterHog extends Component {
 
   constructor() {
     super()
     this.state = {
-      eyeColor: "blue",
+      eyeColor: "blue"
     }
   }
-
 
   changeEyeColor = (e) => {
     this.setState({
@@ -40,9 +39,9 @@ export default class MasterHog extends Component {
         </div>
         
         <ul className="hoglist">
-          <BabyHog />
-          <BabyHog />
-          <BabyHog />
+            {offspring.map((babyHog) => {
+            return <BabyHog key={babyHog.id} eyeColor={this.state.eyeColor} name={babyHog.name} hobby={babyHog.hobby} />;
+            })}
         </ul>
 
       </div>
